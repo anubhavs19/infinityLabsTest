@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HostPageComponent } from './host-page/host-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HostListComponent } from './host-list/host-list.component';
+import { StorageService } from './Services/storage-service.service';
+import { FormBuilder, ReactiveFormsModule  } from '@angular/forms';
+import { HostViewEditComponent } from './host-view-edit/host-view-edit.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HostPageComponent,
+    HostListComponent,
+    HostViewEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule 
   ],
-  providers: [],
+  providers: [StorageService, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
