@@ -14,7 +14,7 @@ export class HostListComponent implements OnInit {
   pageNum: number = 1;
   list;
   selectedIndex: number=-1;
-  constructor(private storage: StorageService) {
+  constructor(public storage: StorageService) {
     this.list = storage.getHostPage(this.pageNum, this.size)/*.subscribe(items=>{
       console.log(items);
   })*/;

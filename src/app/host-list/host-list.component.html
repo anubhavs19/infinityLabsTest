@@ -24,7 +24,7 @@
             <a (click)="pageNum=page" class="page-link">{{page}}</a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="#" [ngClass]="{disabled: pageNum==storage.getMaxPage(pageNum, size)}" (click)="pageNum=pageNum+1">Next</a>
+            <a class="page-link" href="#" [ngClass]="{disabled: pageNum==storage.getMaxPage(size)}" (click)="pageNum=pageNum+1">Next</a>
         </li>
     </ul>
 </div>

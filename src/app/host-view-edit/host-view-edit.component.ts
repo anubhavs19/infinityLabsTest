@@ -13,7 +13,7 @@ export class HostViewEditComponent implements OnInit {
   hostData;
 
 
-  constructor(private storage: StorageService) { }
+  constructor(public storage: StorageService) { }
 
   ngOnInit() {
     this.hostData = this.storage.getHost(this.index);

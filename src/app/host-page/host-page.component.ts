@@ -20,7 +20,7 @@ export class HostPageComponent implements OnInit {
   // loopBack: String;
   hostForm: FormGroup;
   // storage:StorageService;
-  constructor(private storage: StorageService, private formBuilder: FormBuilder) {
+  constructor(public storage: StorageService, public formBuilder: FormBuilder) {
     // this.storage = storage;
     
   }
