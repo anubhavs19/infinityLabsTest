@@ -1,6 +1,7 @@
 export class HostData {
     hostName: String;
     loopback: String;
+    interfaces: Array<any>;
 
     constructor(hostName: String, loopback: String) {
         this.hostName = hostName;
@@ -21,5 +22,13 @@ export class HostData {
 
     setHostName(hostName) {
         this.hostName = hostName;
+    }
+
+    getInterfaces(){
+        return this.interfaces;
+    }
+
+    setInterfaces(interfaces) {
+        this.interfaces = interfaces;
     }
 }

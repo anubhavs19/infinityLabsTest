@@ -12,7 +12,7 @@
         <div class="col-sm-4">
             <button class="btn btn-primary fa fa-pencil" (click)="selectedIndex = i+((pageNum-1)*size);" data-toggle="modal" data-target="#myModal"></button>
             <button class="btn btn-primary fa fa-trash" (click)="deleteItem(i+((pageNum-1)*size))"></button>
-            <button class="btn btn-primary fa fa-eye" (click)="selectedIndex = i+((pageNum-1)*size);"  data-toggle="modal" data-target="#myModal2"></button>
+            <button class="btn btn-primary fa fa-eye" (click)="selectedIndex = i+((pageNum-1)*size);" data-toggle="modal" data-target="#myModal2"></button>
         </div>
     </div>
 
@@ -52,13 +52,31 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Host Details</h4>
+                <h4 class="modal-title">EDIT INTERFACES</h4>
                 <button type="button" class="close fa fa-times" data-dismiss="modal" (click)="resetIndex()"></button>
             </div>
             <div class="modal-body">
-                <app-host-view-edit  *ngIf="selectedIndex!=-1" [index]="selectedIndex"></app-host-view-edit>
+                <app-host-page *ngIf="selectedIndex!=-1" [isEdit]="true" [index]="selectedIndex" [childIndex]="selectedChildIndex" (buttonAction)="resetChildIndex()"></app-host-page>
+                <!-- <app-host-view-edit *ngIf="selectedIndex!=-1" [index]="selectedIndex"></app-host-view-edit> -->
+                <div *ngIf="selectedIndex!=-1">
+                    <div>Interfaces</div>
+                    <div class="row">
+                        <div class="col-sm-1">SR NO</div>
+                        <div class="col-sm-4">Hostname</div>
+                        <div class="col-sm-3">Loopback</div>
+                        <div class="col-sm-4">ACTION</div>
+                    </div>
+                    <div *ngFor="let interface of storage.getHost(selectedIndex).interfaces; let j = index" class="row" style="margin: 2px">
+                        <div class="col-sm-1">{{j+1}}</div>
+                        <div class="col-sm-4">{{interface.interface}}</div>
+                        <div class="col-sm-3">{{interface.ip}}</div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-primary fa fa-pencil" (click)="selectedChildIndex = j"></button>
+                            <button class="btn btn-primary fa fa-trash" (click)="deleteChildItem(j)"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

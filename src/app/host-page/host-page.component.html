@@ -1,25 +1,31 @@
-  <form name="addHostForm" class="row" [formGroup]="hostForm" (ngSubmit)="saveHost()">
-    <div class="form-group" class="col-xs-12 col-md-4">
-      <label for="host"><b>Hostname:</b></label>
-      <input type="text" formControlName="hostName" class="form-control" id="hostName">
-      <div *ngIf="hostForm.controls['hostName'].touched && hostForm.controls['hostName'].errors && hostForm.controls['hostName'].errors.required">
-          This is a required field.
-        </div>
-        <div *ngIf="hostForm.controls['hostName'].touched && hostForm.controls['hostName'].errors && hostForm.controls['hostName'].errors.pattern">
-            Alphanumerics with spaces, '-', '_' or are allowed
-        </div>
+<form name="addHostForm" class="row" [formGroup]="hostForm" (ngSubmit)="saveHost()">
+  <div class="form-group" class="col-xs-12 col-md-4">
+    <label for="host">
+      <b>Hostname:</b>
+    </label>
+    <input type="text" formControlName="hostName" class="form-control" id="hostName">
+    <div *ngIf="hostForm.controls['hostName'].touched && hostForm.controls['hostName'].errors && hostForm.controls['hostName'].errors.required">
+      This is a required field.
     </div>
-    <div class="form-group" class="col-xs-12 col-md-4">
-      <label for="ip"><b>Loopback:</b></label>
-      <input type="text" class="form-control" formControlName="loopBack" id="loopBack">
-      <div *ngIf="hostForm.controls['loopBack'].touched && hostForm.controls['loopBack'].errors && hostForm.controls['loopBack'].errors.required">
-          This is a required field.
-        </div>
-        <div *ngIf="hostForm.controls['loopBack'].touched && hostForm.controls['loopBack'].errors && hostForm.controls['loopBack'].errors.pattern">
-            Valid IP address are allowed
-        </div>
+    <div *ngIf="hostForm.controls['hostName'].touched && hostForm.controls['hostName'].errors && hostForm.controls['hostName'].errors.pattern">
+      Alphanumerics with spaces, '-', '_' or are allowed
     </div>
-    <div class="col-xs-12 col-md-4 form-group" style="line-height: 75px;">
-      <button type="submit" class="btn btn-primary align-middle" [disabled]="(!hostForm.controls['hostName'].touched && !isEdit) || hostForm.controls['hostName'].errors || (!hostForm.controls['loopBack'].touched && !isEdit) || hostForm.controls['loopBack'].errors">{{ buttonLabel }}</button>
+  </div>
+  <div class="form-group" class="col-xs-12 col-md-4">
+    <label for="ip">
+      <b>Loopback:</b>
+    </label>
+    <input type="text" class="form-control" formControlName="loopBack" id="loopBack">
+    <div *ngIf="hostForm.controls['loopBack'].touched && hostForm.controls['loopBack'].errors && hostForm.controls['loopBack'].errors.required">
+      This is a required field.
     </div>
-  </form>
+    <div *ngIf="hostForm.controls['loopBack'].touched && hostForm.controls['loopBack'].errors && hostForm.controls['loopBack'].errors.pattern">
+      Valid IP address are allowed
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4 form-group" style="line-height: 75px;">
+    <button type="submit" class="btn btn-primary align-middle" [disabled]="(!hostForm.controls['hostName'].touched && !isEdit) || hostForm.controls['hostName'].errors || (!hostForm.controls['loopBack'].touched && !isEdit) || hostForm.controls['loopBack'].errors">
+      {{ buttonLabel }}
+    </button>
+  </div>
+</form>
